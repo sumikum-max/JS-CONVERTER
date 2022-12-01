@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number System Conversion</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="styles.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <h1>Number System Conversion</h1>
+        <div id="select-container">
+            <span>From</span>
+            <select class="iType" id="ipType">
+        <option value="ipbin">BINARY</option>
+        <option value="ipoct">OCTAL</option>
+        <option value="ipdec">DECIMAL</option>
+        <option value="iphex">HEXDECIMAL</option>
+    </select>
+            <SPAN>To</SPAN>
+            <select class="oType" id="opType">
+        <option value="opbin">BINARY</option>
+        <option value="opoct">OCTAL</option>
+        <option value="opdec">DECIMAL</option>
+        <option value="ophex">HEXDECIMAL</option>
+    </select>
+        </div>
+        <div id="input-container">
+            <input class="iNum" id="ipNum" placeholder="input number">
+        </div>
+
+        <button class="btn" onclick="convert()">CONVERT</button>
+
+        <input class="oNum" id="opNum" placeholder="output" readonly>
+</body>
+
+</html>
