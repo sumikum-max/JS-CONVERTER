@@ -2,40 +2,52 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Number System Conversion</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="styles.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Converter</title>
+    <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-    <main>
-        <h1>Number System Conversion</h1>
-        <div id="select-container">
-            <span>From</span>
-            <select class="iType" id="ipType">
-        <option value="ipbin">BINARY</option>
-        <option value="ipoct">OCTAL</option>
-        <option value="ipdec">DECIMAL</option>
-        <option value="iphex">HEXDECIMAL</option>
-    </select>
-            <SPAN>To</SPAN>
-            <select class="oType" id="opType">
-        <option value="opbin">BINARY</option>
-        <option value="opoct">OCTAL</option>
-        <option value="opdec">DECIMAL</option>
-        <option value="ophex">HEXDECIMAL</option>
-    </select>
-        </div>
-        <div id="input-container">
-            <input class="iNum" id="ipNum" placeholder="input number">
-        </div>
+<body style="background-color:rgb(78, 96, 98);">
 
-        <button class="btn" onclick="convert()">CONVERT</button>
 
-        <input class="oNum" id="opNum" placeholder="output" readonly>
+    <div class="wrapper">
+        <h1>NUMBER SYSTEM CONVERTER</h1>
+
+        <div class="inputs">
+            <div class="w-100">
+                <!-- from Dropdown -->
+                <select id="from" class="input-field">
+            <option value="2">Binary</option>
+            <option value="8">octa</option>
+            <option value="10">decimal</option>
+            <option value="16">hexa</option>
+          </select>
+            </div>
+            <div class="w-100">
+                <!-- to dropdown -->
+                <select id="to" class="input-field">
+            <option value="2">Binary</option>
+            <option value="8">octa</option>
+            <option value="10">decimal</option>
+            <option value="16">hexa</option>
+          </select>
+            </div>
+        </div>
+        <!-- input field -->
+        <div class="w-100">
+            <input type="text" id="input-number" placeholder="Enter your number" class="input-field" />
+        </div>
+        <!-- buttons -->
+        <div style="margin-top: 40px">
+            <button id="convert">Convert</button>
+            <button id="swap">Swap</button>
+        </div>
+        <!-- result box -->
+        <div id="result-box"></div>
+    </div>
+    <script src="styles.js"></script>
 </body>
 
 </html>

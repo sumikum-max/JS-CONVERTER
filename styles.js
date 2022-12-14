@@ -1,81 +1,24 @@
-function convert() {
-    var iNum = document.getElementById("ipNum").value;
-    var iType = document.getElementById("ipType").value;
-    var oType = document.getElementById("opType").value;
-    var oNum;
+const from = document.getElementById('from');
+const to = document.getElementById('to');
+const inputNumber = document.getElementById('input-number');
+const resultBox = document.getElementById('result-box');
+document.getElementById('convert').addEventListener('click', () => {
+    let fromValue = from.value;
+    let toValue = to.value;
+    let inputValue = inputNumber.value;
+    let result = convertBase(fromValue, toValue, inputValue);
+    resultBox.innerText = result;
+});
 
-    //conversion from binary to oct, dec, hex
-    if (iType == "ipbin" && oType == "opdec") oNum = bin2dec(iNum);
-    if (iType == "ipbin" && oType == "opoct") oNum = bin2oct(iNum);
-    if (iType == "ipbin" && oType == "ophex") oNum = bin2hex(iNum);
-    if (iType == "ipbin" && oType == "opbin") oNum = "INVALID";
-    //conversion from decimal to bin, oct, hex
-    if (iType == "ipdec" && oType == "opbin") oNum = dec2bin(iNum);
-    if (iType == "ipdec" && oType == "opoct") oNum = dec2oct(iNum);
-    if (iType == "ipdec" && oType == "ophex") oNum = dec2hex(iNum);
-    if (iType == "ipdec" && oType == "opdec") oNum = "INVALID";
-    //conversion from octal to bin, dec, hex
-    if (iType == "ipoct" && oType == "opbin") oNum = oct2bin(iNum);
-    if (iType == "ipoct" && oType == "opdec") oNum = oct2dec(iNum);
-    if (iType == "ipoct" && oType == "ophex") oNum = oct2hex(iNum);
-    if (iType == "ipoct" && oType == "opoct") oNum = "INVALID";
-    //conversion from hexadecimal to bin, dec, oct
-    if (iType == "iphex" && oType == "opbin") oNum = hex2bin(iNum);
-    if (iType == "iphex" && oType == "opoct") oNum = hex2oct(iNum);
-    if (iType == "iphex" && oType == "opdec") oNum = hex2dec(iNum);
-    if (iType == "iphex" && oType == "ophex") oNum = "INVALID";
+function convertBase(fromBase, toBase, num) {
+    let d = parseInt(num, fromBase);
+    let res = d.toString(toBase);
+    return res;
+}
 
-    document.getElementById("opNum").value = oNum;
-}
-//=============================================================
-//function binary to decimal conversion
-function bin2dec(iNum) {
-    return parseInt(iNum, 2);
-}
-//function binary to octal conversion
-function bin2oct(iNum) {
-    return parseInt(iNum, 2).toString(8);
-}
-//function binary to hexadecimal conversion
-function bin2hex(iNum) {
-    return parseInt(iNum, 2).toString(16);
-}
-//===========================================
-//function decimal to binary conversion
-function dec2bin(iNum) {
-    return parseInt(iNum).toString(2);
-}
-//function decimal to octal conversion
-function dec2oct(iNum) {
-    return parseInt(iNum).toString(8);
-}
-//function decimal to hexadecimal conversion
-function dec2hex(iNum) {
-    return parseInt(iNum).toString(16);
-}
-//===========================================
-//function octal to binary conversion
-function oct2bin(iNum) {
-    return parseInt(iNum, 8).toString(2);
-}
-//function octal to decimal conversion
-function oct2dec(iNum) {
-    return parseInt(iNum, 8).toString(10);
-}
-//function octal to hexadecimal conversion
-function oct2hex(iNum) {
-    return parseInt(iNum, 8).toString(16);
-}
-//===========================================
-//function hexadecimal to binary conversion
-function hex2bin(iNum) {
-    return parseInt(iNum, 16).toString(2);
-}
-//function hexadecimal to octal conversion
-function hex2oct(iNum) {
-    return parseInt(iNum, 16).toString(8);
-}
-//function hexadecimal to decimal conversion
-function hex2dec(iNum) {
-    return parseInt(iNum, 16).toString(10);
-}
+// swapping
+document.getElementById('swap').addEventListener('click', () => {
+    let temp = from.value;
+    from.value = to.value;
+    to.value = temp;
+});
